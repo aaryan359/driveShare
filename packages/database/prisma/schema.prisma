@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model UserAccount {
+  id            String           @id @default(uuid())
+  email         String           @unique
+  name          String
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  
+  // Relations
+  projects      CustomerProject[]
+  invoices      BillingInvoice[]
+}
+
+model CustomerProject {
+  id                    String        @id @default(uuid())
+  userId                String
+  name                  String        
+  accessKeyId           String        @unique 
+  secretAccessKeyHash   String        
+  isActive              Boolean       @default(true)
+  createdAt             DateTime      @default(now())
+
+  // Telemetry Aggregates (Updated hourly via Cron Rollups)
+  currentStorageBytes   BigInt        @default(0)
+  totalEgressBytes      BigInt        @default(0)
+
+  // Relations
+  user                  UserAccount   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fileMetadata          FileRegistry[]
+  bandwidthLogs         BandwidthLedger[]
+}
+
+
+model FileRegistry {
+  id              String          @id @default(uuid())
+  projectId       String
+  fileName        String          
+  sizeBytes       BigInt          
+  mimeType        String          @default("application/octet-stream")
+  
+  // Storage Provider Flag (The Core Bridge!)
+  // Day 1: "STORJ" | Phase 2: "DRIVESHARE_NATIVE"
+  providerType    String          @default("STORJ") 
+  
+  createdAt       DateTime        @default(now())
+
+  // Relations
+  project         CustomerProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  shardLocations  FileShard[]     // Inactive on Day 1, populated in Phase 2
+}
+
+model BandwidthLedger {
+  id              String          @id @default(uuid())
+  projectId       String
+  direction       String          // "INGRESS" (Upload) or "EGRESS" (Download)
+  bytesHandled    BigInt          // Exact byte calculation
+  createdAt       DateTime        @default(now())
+
+  // Relations
+  project         CustomerProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model ProviderNode {
+  id                  String         @id @default(uuid()) 
+  upiId               String         // Local Indian payout loop: e.g., "student@okaxis"
+  ipAddress           String?
+  clientVersion       String         // e.g., "v1.0.2-go"
+  status              String         // "ONLINE" | "OFFLINE" | "SUSPENDED"
+  
+  // Storage Constraints
+  allocatedSpaceBytes BigInt         // Total space student volunteer declared
+  usedSpaceBytes      BigInt         @default(0)
+  
+  // Security Deposit Holding Engine (Withholding Matrix)
+  withheldEscrowINR   Decimal        @default(0.00)
+  payableBalanceINR   Decimal        @default(0.00)
+  
+  // Verification Telemetry
+  auditPassCount      Int            @default(0)
+  auditFailCount      Int            @default(0)
+  lastSeenHeartbeat   DateTime       @default(now())
+  createdAt           DateTime       @default(now())
+
+  // Relations
+  hostedShards        FileShard[]
+}
+
+model FileShard {
+  id              String         @id @default(uuid())
+  fileId          String
+  nodeId          String
+  shardIndex      Int            // e.g., Shard 1 of 40 inside Reed-Solomon Erasure Coding
+  shardHash       String         // Expected hash signature used for Anti-Cheat audits
+  createdAt       DateTime       @default(now())
+
+  // Relations
+  fileParent      FileRegistry   @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  hostingNode     ProviderNode   @relation(fields: [nodeId], references: [id], onDelete: Cascade)
+}
+
+
+model BillingInvoice {
+  id              String         @id @default(uuid())
+  userId          String
+  amountINR       Decimal
+  paymentStatus   String         // "PENDING" | "PAID" | "FAILED"
+  razorpayOrderId String?        @unique
+  billingPeriod   DateTime
+  createdAt       DateTime       @default(now())
+
+  // Relations
+  user            UserAccount    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
