@@ -134,7 +134,7 @@ func loadOrCreateConfig(flagUPI string, flagSpace int) Config {
 				cfg.UPIID = input
 				break
 			}
-			fmt.Println("⚠️ Invalid UPI format. Please make sure it contains the '@' symbol.")
+			fmt.Println(" Invalid UPI format. Please make sure it contains the '@' symbol.")
 		}
 	}
 
@@ -247,7 +247,7 @@ func main() {
 				}
 				shardID := cleanShardBuilder.String()
 				if shardID == "" {
-					log.Println("⚠️ Malicious/Unsafe Shard ID ignored to protect filesystem.")
+					log.Println(" Malicious/Unsafe Shard ID ignored to protect filesystem.")
 					continue
 				}
 
@@ -256,7 +256,7 @@ func main() {
 				allocatedBytes := int64(cfg.AllocatedSpaceGB) * 1024 * 1024 * 1024
 
 				if usedBytes+int64(len(shardBytes)) > allocatedBytes {
-					log.Printf("⚠️ Storage Limit Hit! Rejecting shard %s (%d bytes). Used: %.2f GB",
+					log.Printf(" Storage Limit Hit! Rejecting shard %s (%d bytes). Used: %.2f GB",
 						shardID, len(shardBytes), float64(usedBytes)/(1024*1024*1024))
 
 					receipt := ReceiptResponse{
