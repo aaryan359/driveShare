@@ -29,12 +29,12 @@ export function encrypt(data: Buffer, secretKeyString: string): { iv: string; en
   // Derived 32-byte key from shared system or custom project secret
   const key = crypto.createHash('sha256').update(secretKeyString).digest();
   const iv = crypto.randomBytes(IV_LEN);
-  
+
   const cipher = crypto.createCipheriv(ALGORITHM, key, iv);
-  
+
   const encrypted = Buffer.concat([cipher.update(data), cipher.final()]);
   const tag = cipher.getAuthTag();
-  
+
   return {
     iv: iv.toString('hex'),
     encryptedData: encrypted.toString('hex'),
@@ -48,9 +48,9 @@ export function decrypt(encryptedHex: string, secretKeyString: string, ivHex: st
   const iv = Buffer.from(ivHex, 'hex');
   const tag = Buffer.from(tagHex, 'hex');
   const encryptedData = Buffer.from(encryptedHex, 'hex');
-  
+
   const decipher = crypto.createDecipheriv(ALGORITHM, key, iv);
   decipher.setAuthTag(tag);
-  
+
   return Buffer.concat([decipher.update(encryptedData), decipher.final()]);
 }

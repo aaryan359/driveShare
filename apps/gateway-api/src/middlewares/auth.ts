@@ -6,6 +6,8 @@ const JWT_SECRET = process.env.JWT_SECRET || 'driveshare_secret_key_2026';
 export interface AuthRequest extends Request {
   userId?: string;
   email?: string;
+  projectId?: string;
+  project?: any;
 }
 
 export function authenticateJWT(req: AuthRequest, res: Response, next: NextFunction) {

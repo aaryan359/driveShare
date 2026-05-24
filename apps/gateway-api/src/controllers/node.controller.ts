@@ -6,6 +6,7 @@ import { EventEmitter } from 'events';
 
 // Event emitter to capture and dispatch Go daemon storage confirmations
 export const receiptEvents = new EventEmitter();
+export const signalingEvents = new EventEmitter();
 
 /**
  * Thread-safe DePIN Active Node Memory Registry
@@ -133,6 +134,9 @@ export async function handleNodeConnection(ws: WebSocket, request: IncomingMessa
         // Intercept receipt confirmations
         const shardKey = payload.shardId || payload.shardID;
         receiptEvents.emit(`receipt:${shardKey}`, payload);
+      } else if (payload.type === 'WEBRTC_SIGNAL_ANSWER') {
+        const uploaderId = payload.uploaderId;
+        signalingEvents.emit(`signal:${uploaderId}:${nodeId}`, payload);
       }
     } catch (err: any) {
       console.error(`[-] Error handling node message payload:`, err.message);
