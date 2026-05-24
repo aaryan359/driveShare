@@ -82,19 +82,19 @@ export default function Home() {
           <div>
             <div className="hero-tag">
               <span className="inline-block" style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--accent-green)", marginRight: "6px" }}></span>
-              Geo-Fenced & Compliant with India's DPDP Act
+              Keep Your Data In Your Country &amp; Compliant With Your Laws
             </div>
 
             <h1 className="hero-title">
               S3-Compatible Storage.<br />
               <span>70% Cheaper than AWS.</span><br />
-              100% Geo-Fenced inside India.
+              100% Geo-Fenced inside Your Country.
             </h1>
 
             <p className="hero-subtitle">
               Stop overpaying for cold data buckets, debugging application logs, and daily database archives.
               DriveShare shards your data across a secure, distributed network of hyper-local consumer hardware loops—idle student campus laptops and broadband links.
-              Enjoy uncompromised low latency, flat INR billing, and complete DPDP legal compliance.
+              Enjoy uncompromised low latency, flat-rate pricing, and complete national legal compliance.
             </p>
 
             <div className="hero-ctas">
@@ -167,14 +167,14 @@ export default function Home() {
                 <Server size={22} />
               </div>
               <h4 style={{ fontFamily: "var(--font-outfit)", fontSize: "1.2rem", fontWeight: "600", marginBottom: "12px", color: "#ffffff" }}>
-                1. S3-Compatible API Gateway
+                1. Zero Server Bandwidth Costs
               </h4>
               <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: "1.6" }}>
-                Startups will not rewrite their codebase to support proprietary decentralized protocols. DriveShare exposes a fully compliant S3 API gateway wrapper. Engineers simply swap their SDK destination URLs to point to us.
+                Stream or store 100 Petabytes of data through DriveShare, and your server egress billing remains exactly $0. Bandwidth is distributed entirely client-to-peer.
               </p>
               <div style={{ marginTop: "16px", background: "var(--bg-obsidian)", border: "1px solid var(--border-grid)", padding: "12px", borderRadius: "4px", fontFamily: "var(--font-mono)", fontSize: "0.75rem" }}>
-                <span className="text-muted"># Swap access point</span><br />
-                AWS_ENDPOINT_URL=https://api.driveshare.in
+                <span className="text-muted"># Direct Peer Stream</span><br />
+                Egress Bandwidth Bill = $0.00
               </div>
             </div>
 
@@ -183,13 +183,13 @@ export default function Home() {
                 <Cloud size={22} />
               </div>
               <h4 style={{ fontFamily: "var(--font-outfit)", fontSize: "1.2rem", fontWeight: "600", marginBottom: "12px", color: "#ffffff" }}>
-                2. Micro-Client &quot;Folder Watcher&quot;
+                2. Zero Server CPU Load
               </h4>
               <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: "1.6" }}>
-                CCTV owners are not developers. We provide a lightweight, set-and-forget Windows/Linux background folder synchronizer daemon that plugs directly into local recording software paths (CP Plus Dahua, Milestone, Blue Iris firmware).
+                Our server performs zero expensive compression or cryptographic sharding calculations. The client's own laptop browser handles this via WebAssembly, scaling infinitely.
               </p>
               <div style={{ marginTop: "16px", background: "var(--bg-obsidian)", border: "1px solid var(--border-grid)", padding: "12px", borderRadius: "4px", fontFamily: "var(--font-mono)", fontSize: "0.75rem" }}>
-                <span className="text-cyan">rclone sync</span> &quot;C:\CCTV_Media&quot; driveshare:cctv
+                <span className="text-cyan">local_wasm</span> compress &amp; encrypt shards
               </div>
             </div>
 
@@ -198,13 +198,13 @@ export default function Home() {
                 <Key size={22} />
               </div>
               <h4 style={{ fontFamily: "var(--font-outfit)", fontSize: "1.2rem", fontWeight: "600", marginBottom: "12px", color: "#ffffff" }}>
-                3. Cryptographic Shredding Purges
+                3. Ultimate Zero-Knowledge Privacy
               </h4>
               <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: "1.6" }}>
-                Startups legally purge logs, and CCTV networks clear out archives after a month. Rather than forcing hundreds of home laptops to delete shards, our central Encryption Key Registry shreds data by destroying target key pairs instantly.
+                The unencrypted file never touches our server. Payloads are encrypted locally in the user's browser before transit. Absolute mathematical privacy is guaranteed.
               </p>
               <div style={{ marginTop: "16px", background: "var(--bg-obsidian)", border: "1px solid var(--border-grid)", padding: "12px", borderRadius: "4px", fontFamily: "var(--font-mono)", fontSize: "0.75rem" }}>
-                <span className="text-green">Expiry reached</span> &rarr; Decryption key shredded
+                <span className="text-green">Zero-Knowledge</span> &rarr; Server cannot view files
               </div>
             </div>
           </div>
@@ -248,14 +248,14 @@ export default function Home() {
                 <tr>
                   <td className="metric-name">API Cold Start Latency</td>
                   <td className="hyperscaler-cell">Variable across overseas server loops</td>
-                  <td className="driveshare-cell">5 ms - 20 ms <span style={{ opacity: 0.8, fontSize: "0.85rem" }}>(domestic Indian routing)</span></td>
+                  <td className="driveshare-cell">5 ms - 20 ms <span style={{ opacity: 0.8, fontSize: "0.85rem" }}>(domestic country routing)</span></td>
                   <td className="advantage-cell">Snappy responses on local ISP loops</td>
                 </tr>
                 <tr>
                   <td className="metric-name">Legal Compliance Status</td>
                   <td className="hyperscaler-cell">Data shards pooled globally overseas</td>
-                  <td className="driveshare-cell">100% Geo-Fenced to India</td>
-                  <td className="advantage-cell">Built-in compliance with India's DPDP Act</td>
+                  <td className="driveshare-cell">100% Geo-Fenced to Your Country</td>
+                  <td className="advantage-cell">Built-in Compliance with Local Laws</td>
                 </tr>
               </tbody>
             </table>
@@ -293,33 +293,27 @@ export default function Home() {
             </div>
 
             <div className="pricing-display">
-              <span className="pricing-badge">System Margins &amp; Economics Matrix</span>
-              <table style={{ width: "100%", borderCollapse: "collapse", color: "#ffffff", fontSize: "0.85rem" }}>
+              <span className="pricing-badge">Sovereign Flat-Rate Pricing</span>
+              <table style={{ width: "100%", borderCollapse: "collapse", color: "#ffffff", fontSize: "0.95rem" }}>
                 <thead>
                   <tr style={{ borderBottom: "1px solid var(--border-grid)" }}>
                     <th style={{ padding: "12px 8px", textAlign: "left" }}>Metric</th>
-                    <th style={{ padding: "12px 8px", textAlign: "left" }}>We Charge Startup</th>
-                    <th style={{ padding: "12px 8px", textAlign: "left" }}>We Pay Node Laptop</th>
-                    <th style={{ padding: "12px 8px", textAlign: "right" }}>Our Profit Margin</th>
+                    <th style={{ padding: "12px 8px", textAlign: "right" }}>Flat Price (Surveillance Grade)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr style={{ borderBottom: "1px solid var(--border-grid)" }}>
-                    <td style={{ padding: "16px 8px" }}><strong>Storage</strong> (per TB/mo)</td>
-                    <td style={{ padding: "16px 8px", color: "var(--accent-cyan)" }}>₹450 ($5.50)</td>
-                    <td style={{ padding: "16px 8px", color: "var(--accent-green)" }}>₹125 ($1.50)</td>
-                    <td style={{ padding: "16px 8px", textAlign: "right", fontWeight: "bold" }}>~72% Margin</td>
+                    <td style={{ padding: "16px 8px" }}><strong>Storage</strong> (per TB/month)</td>
+                    <td style={{ padding: "16px 8px", textAlign: "right", color: "var(--accent-cyan)", fontWeight: "bold" }}>₹450 ($5.50)</td>
                   </tr>
                   <tr>
                     <td style={{ padding: "16px 8px" }}><strong>Bandwidth</strong> (per TB egress)</td>
-                    <td style={{ padding: "16px 8px", color: "var(--accent-cyan)" }}>₹550 ($6.50)</td>
-                    <td style={{ padding: "16px 8px", color: "var(--accent-green)" }}>₹165 ($2.00)</td>
-                    <td style={{ padding: "16px 8px", textAlign: "right", fontWeight: "bold" }}>~70% Margin</td>
+                    <td style={{ padding: "16px 8px", textAlign: "right", color: "var(--accent-cyan)", fontWeight: "bold" }}>₹550 ($6.50)</td>
                   </tr>
                 </tbody>
               </table>
               <div style={{ marginTop: "24px", background: "rgba(16, 185, 129, 0.08)", border: "1px solid rgba(16, 185, 129, 0.25)", padding: "12px", borderRadius: "4px", fontSize: "0.75rem", color: "var(--accent-green)", textAlign: "center" }}>
-                <strong>Bharat Core Target</strong>: Keeping files domestic saves transit hops, creating highly attractive cash flows.
+                <strong>Sovereign Cloud Target</strong>: Keeping files geographically close saves transit hops and provides premium performance.
               </div>
             </div>
           </div>

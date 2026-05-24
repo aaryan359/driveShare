@@ -18,7 +18,7 @@ export async function createProject(req: AuthRequest, res: Response) {
   try {
     const rawAccessKey = `ds_access_${crypto.randomBytes(8).toString('hex')}`;
     const rawSecretKey = `ds_secret_${crypto.randomBytes(16).toString('hex')}`;
-    
+
     // Hash the secret access key to protect from plain-text leaks
     const secretHash = await bcrypt.hash(rawSecretKey, 10);
 
