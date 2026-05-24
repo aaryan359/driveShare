@@ -161,49 +161,55 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "24px" }} className="doc-card-grid">
-            <div className="doc-card" style={{ background: "var(--bg-carbon)" }}>
-              <div className="doc-card-icon" style={{ width: "48px", height: "48px", background: "rgba(0, 255, 204, 0.05)", border: "1px solid rgba(0, 255, 204, 0.15)", borderRadius: "6px", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent-cyan)", marginBottom: "20px" }}>
-                <Server size={22} />
+          <div className="pillar-card-grid">
+            <div className="pillar-card">
+              <div>
+                <div className="pillar-card-icon-wrap">
+                  <Server size={24} />
+                </div>
+                <h4 className="pillar-card-title">
+                  1. Zero Server Bandwidth Costs
+                </h4>
+                <p className="pillar-card-desc">
+                  Stream or store 100 Petabytes of data through DriveShare, and your server egress billing remains exactly $0. Bandwidth is distributed entirely client-to-peer.
+                </p>
               </div>
-              <h4 style={{ fontFamily: "var(--font-outfit)", fontSize: "1.2rem", fontWeight: "600", marginBottom: "12px", color: "#ffffff" }}>
-                1. Zero Server Bandwidth Costs
-              </h4>
-              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: "1.6" }}>
-                Stream or store 100 Petabytes of data through DriveShare, and your server egress billing remains exactly $0. Bandwidth is distributed entirely client-to-peer.
-              </p>
-              <div style={{ marginTop: "16px", background: "var(--bg-obsidian)", border: "1px solid var(--border-grid)", padding: "12px", borderRadius: "4px", fontFamily: "var(--font-mono)", fontSize: "0.75rem" }}>
+              <div className="pillar-card-code-block">
                 <span className="text-muted"># Direct Peer Stream</span><br />
-                Egress Bandwidth Bill = $0.00
+                <span className="text-cyan">Egress Bandwidth Bill</span> = $0.00
               </div>
             </div>
 
-            <div className="doc-card" style={{ background: "var(--bg-carbon)" }}>
-              <div className="doc-card-icon" style={{ width: "48px", height: "48px", background: "rgba(0, 255, 204, 0.05)", border: "1px solid rgba(0, 255, 204, 0.15)", borderRadius: "6px", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent-cyan)", marginBottom: "20px" }}>
-                <Cloud size={22} />
+            <div className="pillar-card">
+              <div>
+                <div className="pillar-card-icon-wrap">
+                  <Cloud size={24} />
+                </div>
+                <h4 className="pillar-card-title">
+                  2. Zero Server CPU Load
+                </h4>
+                <p className="pillar-card-desc">
+                  Our server performs zero expensive compression or cryptographic sharding calculations. The client's own laptop browser handles this via WebAssembly, scaling infinitely.
+                </p>
               </div>
-              <h4 style={{ fontFamily: "var(--font-outfit)", fontSize: "1.2rem", fontWeight: "600", marginBottom: "12px", color: "#ffffff" }}>
-                2. Zero Server CPU Load
-              </h4>
-              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: "1.6" }}>
-                Our server performs zero expensive compression or cryptographic sharding calculations. The client's own laptop browser handles this via WebAssembly, scaling infinitely.
-              </p>
-              <div style={{ marginTop: "16px", background: "var(--bg-obsidian)", border: "1px solid var(--border-grid)", padding: "12px", borderRadius: "4px", fontFamily: "var(--font-mono)", fontSize: "0.75rem" }}>
+              <div className="pillar-card-code-block">
                 <span className="text-cyan">local_wasm</span> compress &amp; encrypt shards
               </div>
             </div>
 
-            <div className="doc-card" style={{ background: "var(--bg-carbon)" }}>
-              <div className="doc-card-icon" style={{ width: "48px", height: "48px", background: "rgba(0, 255, 204, 0.05)", border: "1px solid rgba(0, 255, 204, 0.15)", borderRadius: "6px", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent-cyan)", marginBottom: "20px" }}>
-                <Key size={22} />
+            <div className="pillar-card">
+              <div>
+                <div className="pillar-card-icon-wrap">
+                  <Key size={24} />
+                </div>
+                <h4 className="pillar-card-title">
+                  3. Ultimate Zero-Knowledge Privacy
+                </h4>
+                <p className="pillar-card-desc">
+                  The unencrypted file never touches our server. Payloads are encrypted locally in the user's browser before transit. Absolute mathematical privacy is guaranteed.
+                </p>
               </div>
-              <h4 style={{ fontFamily: "var(--font-outfit)", fontSize: "1.2rem", fontWeight: "600", marginBottom: "12px", color: "#ffffff" }}>
-                3. Ultimate Zero-Knowledge Privacy
-              </h4>
-              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: "1.6" }}>
-                The unencrypted file never touches our server. Payloads are encrypted locally in the user's browser before transit. Absolute mathematical privacy is guaranteed.
-              </p>
-              <div style={{ marginTop: "16px", background: "var(--bg-obsidian)", border: "1px solid var(--border-grid)", padding: "12px", borderRadius: "4px", fontFamily: "var(--font-mono)", fontSize: "0.75rem" }}>
+              <div className="pillar-card-code-block">
                 <span className="text-green">Zero-Knowledge</span> &rarr; Server cannot view files
               </div>
             </div>
