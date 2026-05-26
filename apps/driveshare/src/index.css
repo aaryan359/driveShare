@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Deep Royal Purple & Violet Design System */
+:root {
+  --bg-midnight: #070410;
+  --liquid-purple: rgba(139, 92, 246, 0.45);
+  --liquid-violet: rgba(167, 139, 250, 0.4);
+  --liquid-indigo: rgba(99, 102, 241, 0.35);
+  --liquid-magenta: rgba(217, 70, 239, 0.3);
+
+  --text-primary: #F3F4F6;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+
+  --glass-bg: rgba(13, 8, 28, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-focus: rgba(167, 139, 250, 0.5);
+  --glass-glow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+  --glass-inner-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-midnight);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Dynamic Fluid Purple/Violet Background Gradients */
+.liquid-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  overflow: hidden;
+  background-color: var(--bg-midnight);
+}
+
+.liquid-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  mix-blend-mode: screen;
+  opacity: 0.01;
+  animation: float-liquid 24s infinite ease-in-out;
+  display: none;
+  /* Turn off background blurs as requested by user */
+}
+
+.liquid-blob-1 {
+  top: -10%;
+  left: 10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, var(--liquid-purple) 0%, transparent 70%);
+  animation-duration: 28s;
+}
+
+.liquid-blob-2 {
+  bottom: -15%;
+  right: 5%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, var(--liquid-violet) 0%, transparent 70%);
+  animation-duration: 35s;
+  animation-delay: -5s;
+}
+
+.liquid-blob-3 {
+  top: 40%;
+  left: 50%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, var(--liquid-indigo) 0%, transparent 75%);
+  animation-duration: 32s;
+  animation-delay: -12s;
+}
+
+.liquid-blob-4 {
+  top: 15%;
+  right: 15%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, var(--liquid-magenta) 0%, transparent 70%);
+  animation-duration: 25s;
+  animation-delay: -8s;
+}
+
+@keyframes float-liquid {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(40px, -60px) scale(1.15) rotate(120deg);
+  }
+
+  66% {
+    transform: translate(-30px, 30px) scale(0.9) rotate(240deg);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(360deg);
+  }
+}
+
+/* Premium Apple Liquid Glass Cards */
+.liquid-glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--glass-glow), var(--glass-inner-shadow);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glass Inner Reflective Highlight Glow */
+.liquid-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.02) 50%,
+      transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.7), var(--glass-inner-shadow);
+  transform: translateY(-2px);
+}
+
+/* Liquid Glowing Purple Elements */
+.liquid-glow-text {
+  background: linear-gradient(135deg, #ffffff 0%, #c084fc 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(167, 139, 250, 0.25);
+}
+
+.liquid-glow-cyan {
+  background: linear-gradient(135deg, #c084fc 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(167, 139, 250, 0.25);
+}
+
+/* Inputs and Forms */
+.liquid-glass-input {
+  background: rgba(10, 5, 24, 0.7);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  color: var(--text-primary);
+  padding: 16px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.liquid-glass-input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 15px 0 rgba(167, 139, 250, 0.35), inset 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.liquid-glass-label {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Buttons */
+.liquid-glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  gap: 8px;
+  outline: none;
+  position: relative;
+}
+
+.liquid-glass-btn-primary {
+  background: linear-gradient(135deg, #c084fc 0%, #7c3aed 100%);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.liquid-glass-btn-primary:hover {
+  transform: translateY(-1.5px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #d8b4fe 0%, #8b5cf6 100%);
+}
+
+.liquid-glass-btn-primary:active {
+  transform: translateY(0.5px) scale(0.98);
+}
+
+.liquid-glass-btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  box-shadow: var(--glass-inner-shadow);
+  backdrop-filter: blur(10px);
+}
+
+.liquid-glass-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), var(--glass-inner-shadow);
+  transform: translateY(-1.5px);
+}
+
+.liquid-glass-btn-secondary:active {
+  transform: translateY(0.5px);
+}
+
+.liquid-glass-btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.liquid-glass-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.6);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+  transform: translateY(-1.5px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 5, 24, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.4);
+}
+
+/* Animations and Utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glass Neon Badge */
+.neon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(10px);
+}
+
+.neon-badge-cyan {
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  color: #c084fc;
+  box-shadow: 0 0 10px rgba(167, 139, 250, 0.15);
+}
+
+.neon-badge-emerald {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+}
+
+.neon-badge-purple {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #a78bfa;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
+}
+
+.neon-badge-yellow {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.15);
+}
+
+/* Pulse animation */
+.pulse-glow {
+  animation: pulse-glow-ani 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow-ani {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(167, 139, 250, 0.2);
+    opacity: 0.9;
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+    opacity: 1;
+  }
+}

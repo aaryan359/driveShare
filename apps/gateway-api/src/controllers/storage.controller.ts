@@ -83,7 +83,7 @@ export async function uploadFileInit(req: AuthRequest, res: Response) {
     const uploadToken = jwt.sign(
       { fileId: fileRecord.id, projectId, userId },
       JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '10h' }
     );
 
     return res.status(200).json({
